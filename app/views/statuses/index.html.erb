@@ -1,18 +1,29 @@
-<!--<div class="page-header">
-  <h1>All Statuses</h1>
-</div>
-<%= link_to "New Status", new_status_path, class: 'btn' %>-->
-
-<% @statuses.each do |status| %>
-  <div class="status">
-    <h5><%= status.name %></h5>
-    <p><%= status.content %></p>
-    <div class="meta">
-      <%= link_to "Posted " + time_ago_in_words(status.created_at) + " ago", status %>
-      <span class="admin">
-        <%= link_to 'Edit', edit_status_path(status) %>
-        <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </span>
+<div class="row">
+  <div class="span4">
+    <ul class="nav nav-tabs nav-stacked">
+      <li><%= link_to "Home", statuses_path %></li>
+      <li><%= link_to "New Status", new_status_path %></li>
+    </ul>
+    <div class="well">
+      &copy; <%= Time.new.year %> <%= link_to "Footbook", statuses_path %>
     </div>
   </div>
-<% end %>
+  <div class="span8">
+    <div class="statuses">
+      <h4>Statuses</h4>
+      <% @statuses.each do |status| %>
+        <div class="status">
+          <h5><%= status.user.full_name %></h5>
+          <p><%= status.content %></p>
+          <div class="meta">
+            <%= link_to "Posted " + time_ago_in_words(status.created_at) + " ago", status %>
+            <span class="admin">
+              <%= link_to 'Edit', edit_status_path(status) %>
+              <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

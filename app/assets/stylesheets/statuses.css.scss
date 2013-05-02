@@ -2,11 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.status {
+.statuses {
     border: solid 1px #dddddd;
-    padding: 10px 20px 20px;
-    margin-bottom: 20px;
     border-radius: 5px;
+}
+
+.statuses h4 {
+    padding: 12px 20px;
+    border-bottom: solid 1px #ddd;
+    margin: 0;
+}
+
+.status {
+    border-bottom: solid 1px #dddddd;
+    padding: 10px 20px;
+    margin: 0;
+}
+
+.status:last-child {
+    border: none;
+}
+
+.status.hover {
+    background: #f5f5f5;
+}
+
+.status h5,
+.status p {
+    margin: 0;
+}
+
+.status .meta {
+    font-size: 12px;
 }
 
 .status .admin {
