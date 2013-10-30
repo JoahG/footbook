@@ -44,6 +44,8 @@ class StatusesController < ApplicationController
   def create
     @status = Status.new(params[:status])
 
+    @status.user_id = current_user.id
+
     respond_to do |format|
       if @status.save
         format.html { redirect_to @status, notice: 'Status was successfully created.' }
